@@ -1,0 +1,28 @@
+void foldHelp( Node ** left, Node * right) {
+    if (right == NULL) {
+        return;
+    }
+    foldHelp(left, right->next);
+    if ((*left)->next == NULL){
+        return;
+    }
+
+    if ((*left)!= right && (*left)->next != right) {
+        Node * temp = (*left)->next;
+        (*left)->next = right;
+        right->next = temp;
+        *left = temp;
+    } 
+    else {
+        if ((*left) != right) {
+            *left = (*left)->next;
+        }
+        (*left)->next = NULL;
+    }
+}
+
+void fold(Node * head) {
+
+    foldHelp(&head, head);
+
+}
