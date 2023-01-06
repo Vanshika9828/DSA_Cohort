@@ -1,0 +1,15 @@
+Node * RemoveLast(Node * head){
+    if(head == NULL){
+        return head;
+    }
+
+    Node * temp = head;
+
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    Node * a = temp -> next;
+    delete a;
+    temp -> next = NULL;
+    return head;
+}
