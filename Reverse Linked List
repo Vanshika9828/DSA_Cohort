@@ -1,1 +1,10 @@
+void Reverse(Node *head)
+{
+    if (head == NULL) {
+      return;
+    }
 
+    Reverse(head->next);
+
+    cout << head->data << " ";
+}
