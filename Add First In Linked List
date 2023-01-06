@@ -1,0 +1,6 @@
+Node * AddAtFirst(Node * head,int data){
+    Node * newNode = new Node(data);
+    newNode -> next = head;
+    head = newNode;
+    return head;
+}
