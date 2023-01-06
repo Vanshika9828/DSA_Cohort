@@ -1,0 +1,21 @@
+Node *kReverse(Node *head, int k)
+{
+    if (head == NULL)
+        return head;
+    int count = k;
+    Node *current = head;
+    Node *prev = head;
+    while (current != NULL)
+    {
+        while (count != 1 && count != 0 && prev->next != NULL)
+        {
+            prev = prev->next;
+            count--;
+        }
+        reverseLinkedList(current, prev);
+        prev = prev->next;
+        current = prev;
+        count = k;
+    }
+    return head;
+}
