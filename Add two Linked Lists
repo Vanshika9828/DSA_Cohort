@@ -1,1 +1,25 @@
-
+Node *addTwoNumbers(Node *head1, Node *head2)
+{
+    Node* temp1=head1;
+    Node* temp2=head2;
+    Node *dummy = new Node(0);
+    Node *head=dummy;
+    int carry=0;
+    while(temp1!=NULL || temp2!=NULL || carry!=0){
+            int sum=0;
+            if(temp1!=NULL){
+                sum=sum+temp1->data;
+                temp1=temp1->next;
+            }
+            if(temp2!=NULL){
+                sum=sum+temp2->data;
+                temp2=temp2->next;
+            }
+            sum+=carry;
+            carry=sum/10;
+            Node* newnode=new Node(sum%10);
+            head->next=newnode;
+            head=head->next;
+        }
+    return dummy->next;
+}
