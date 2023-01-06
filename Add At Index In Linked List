@@ -1,0 +1,20 @@
+Node * insertAtIth(Node * head,int data,int i){
+    Node * newNode = new Node(data);
+    Node * temp = head;
+    int count = 0;
+    if(i == 0){
+        newNode -> next = head;
+        head = newNode;
+        return head;
+    }
+    while(temp -> next != NULL && count < i-1){
+        temp = temp -> next;
+        count++;
+    }
+    if (temp -> next != NULL){
+        Node * a = temp -> next;
+        temp -> next = newNode;
+        newNode-> next = a;
+    }
+    return head;
+}
